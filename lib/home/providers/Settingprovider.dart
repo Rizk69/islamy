@@ -9,6 +9,7 @@ class Settingprovider extends ChangeNotifier {
       return;
     }
     currentTheme = newTheme;
+
     notifyListeners();
   }
 

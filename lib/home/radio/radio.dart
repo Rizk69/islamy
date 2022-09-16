@@ -15,13 +15,13 @@ class Radioo extends StatefulWidget {
 
 class _RadioState extends State<Radioo> {
   late Future<Respons> respons;
-  late AudioPlayer audioPlayer;
+  static late AudioPlayer audioPlayer = AudioPlayer();
+  bool _h = true;
 
   @override
   void initState() {
     // TODO: implement initState
     respons = getRadio();
-    audioPlayer = AudioPlayer();
   }
 
   @override
@@ -29,7 +29,7 @@ class _RadioState extends State<Radioo> {
     var settingprovider = Provider.of<Settingprovider>(context);
 
     return FutureBuilder<Respons>(
-        future: respons,
+        future: getRadio(),
         builder: (buildContext, snapShot) {
           if (snapShot.hasError) {
             return IconButton(
@@ -79,7 +79,7 @@ class _RadioState extends State<Radioo> {
                               children: [
                                 IconButton(
                                     onPressed: () {
-                                      if (index == index) return;
+                                      if (index == index) pause();
                                       pause();
                                     },
                                     icon: Icon(
@@ -94,7 +94,12 @@ class _RadioState extends State<Radioo> {
                                 ),
                                 IconButton(
                                     onPressed: () {
-                                      play(data?.radios![index].radioUrl ?? '');
+                                      if (_h = true) {
+                                        play(data?.radios![index].radioUrl ??
+                                            '');
+                                      } else {
+                                        pause();
+                                      }
                                     },
                                     icon: Icon(
                                       Icons.play_arrow,
@@ -127,10 +132,11 @@ class _RadioState extends State<Radioo> {
   }
 
   play(String url) async {
+    _h = false;
     int result = await audioPlayer.play(url);
   }
 
-  pause() async {
+  static pause() async {
     await audioPlayer.pause();
   }
 }

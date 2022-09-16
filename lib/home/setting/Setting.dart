@@ -80,7 +80,16 @@ class _SettingState extends State<Setting> {
             child: Text(
           'صدقه جاريه علي روح أبي ',
           style: Theme.of(context).textTheme.headline2,
-        ))
+        )),
+        Center(
+          child: Text(
+            'Programing by Mohamed Rizk',
+            style: TextStyle(color: Colors.black, fontSize: 25),
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        )
       ]),
     );
   }

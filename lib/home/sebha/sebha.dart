@@ -71,8 +71,8 @@ class _SebhaState extends State<Sebha> {
             ),
             Container(
                 alignment: Alignment.center,
-                width: 60,
-                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 22),
+                width: 80,
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
                     color: Theme.of(context).primaryColor),
