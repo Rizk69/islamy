@@ -61,7 +61,9 @@ class _SebhaState extends State<Sebha> {
               height: 35,
             ),
             Text(
-              'عدد التسبيحات',
+              settingprovider.isenglish()
+                  ? 'Account Of Tasbeeh'
+                  : 'عدد التسبيحات',
               style: Theme.of(context).textTheme.headline3,
             ),
             SizedBox(

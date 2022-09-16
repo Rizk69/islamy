@@ -50,6 +50,106 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Islamy`
+  String get app_title {
+    return Intl.message(
+      'Islamy',
+      name: 'app_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quran`
+  String get quran_title {
+    return Intl.message(
+      'Quran',
+      name: 'quran_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hadeth`
+  String get hadeth_title {
+    return Intl.message(
+      'Hadeth',
+      name: 'hadeth_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sebha`
+  String get sebha_title {
+    return Intl.message(
+      'Sebha',
+      name: 'sebha_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Radio`
+  String get radio_title {
+    return Intl.message(
+      'Radio',
+      name: 'radio_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Setting`
+  String get setting_title {
+    return Intl.message(
+      'Setting',
+      name: 'setting_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get light {
+    return Intl.message(
+      'Light',
+      name: 'light',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark`
+  String get dark {
+    return Intl.message(
+      'Dark',
+      name: 'dark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme`
+  String get theme {
+    return Intl.message(
+      'Theme',
+      name: 'theme',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -63,10 +163,8 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
 
   @override
   bool isSupported(Locale locale) => _isSupported(locale);
-
   @override
   Future<S> load(Locale locale) => S.load(locale);
-
   @override
   bool shouldReload(AppLocalizationDelegate old) => false;
 

@@ -75,6 +75,12 @@ class _SettingState extends State<Setting> {
                 style: Theme.of(context).textTheme.headline2,
               )),
         ),
+        Spacer(),
+        Center(
+            child: Text(
+          'صدقه جاريه علي روح أبي ',
+          style: Theme.of(context).textTheme.headline2,
+        ))
       ]),
     );
   }

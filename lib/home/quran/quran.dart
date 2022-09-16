@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islamyverson1/home/quran/sura_name.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/Settingprovider.dart';
 
 class Quran extends StatelessWidget {
   List<String> qran = [
@@ -122,6 +125,8 @@ class Quran extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var settingprovider = Provider.of<Settingprovider>(context);
+
     return Column(
       children: [
         Row(
@@ -143,25 +148,25 @@ class Quran extends StatelessWidget {
           ),
           padding: EdgeInsets.symmetric(vertical: 12),
           child: Text(
-            'Name',
+            settingprovider.isenglish() ? 'Name' : 'أسم السوره',
             style: Theme.of(context).textTheme.headline2,
           ),
         ),
         Expanded(
             child: ListView.separated(
-          itemBuilder: (_, index) {
-            return SuraName(qran[index], index);
-          },
-          itemCount: qran.length,
-          separatorBuilder: (_, index) {
-            return Container(
-              margin: EdgeInsets.symmetric(horizontal: 64),
-              color: Theme.of(context).primaryColor,
-              width: double.infinity,
-              height: 2,
-            );
-          },
-        ))
+              itemBuilder: (_, index) {
+                return SuraName(qran[index], index);
+              },
+              itemCount: qran.length,
+              separatorBuilder: (_, index) {
+                return Container(
+                  margin: EdgeInsets.symmetric(horizontal: 64),
+                  color: Theme.of(context).primaryColor,
+                  width: double.infinity,
+                  height: 2,
+                );
+              },
+            ))
       ],
     );
   }

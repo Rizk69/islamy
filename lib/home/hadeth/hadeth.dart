@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamyverson1/home/hadeth/HadethName.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/Settingprovider.dart';
 
 class Hadeth extends StatefulWidget {
   @override
@@ -13,6 +16,8 @@ class _HadethState extends State<Hadeth> {
 
   @override
   Widget build(BuildContext context) {
+    var settingprovider = Provider.of<Settingprovider>(context);
+
     if (hadethview.isEmpty) readFile();
 
     return Column(children: [
@@ -29,12 +34,12 @@ class _HadethState extends State<Hadeth> {
         decoration: BoxDecoration(
           border: Border.symmetric(
               horizontal:
-                  BorderSide(color: Theme.of(context).primaryColor, width: 2)),
+              BorderSide(color: Theme.of(context).primaryColor, width: 2)),
         ),
         padding: EdgeInsets.symmetric(vertical: 12),
         child: Center(
           child: Text(
-            'Elahadeth',
+            settingprovider.isenglish() ? 'Elahadeth' : 'ألحديث',
             style: Theme.of(context).textTheme.headline2,
           ),
         ),
