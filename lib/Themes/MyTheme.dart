@@ -55,7 +55,7 @@ class MyTheme {
             fontSize: 25, color: coloryelow, fontWeight: FontWeight.bold),
       ),
       appBarTheme: const AppBarTheme(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: Color(0xFFFACC1D)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         titleTextStyle: TextStyle(
