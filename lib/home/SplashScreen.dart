@@ -4,6 +4,8 @@ import 'package:islamyverson1/home/providers/Settingprovider.dart';
 import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
+  static const String route = 'splash';
+
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
@@ -11,14 +13,14 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 6), () {
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Homescreen(),
-          ));
-    });
     super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+        return Homescreen();
+
+        //HomeScreen();
+      }));
+    });
   }
 
   @override
@@ -26,22 +28,46 @@ class _SplashScreenState extends State<SplashScreen> {
     var settingprovider = Provider.of<Settingprovider>(context);
 
     return Container(
-        alignment: AlignmentDirectional.center,
         decoration: BoxDecoration(
             image: DecorationImage(
-                fit: BoxFit.cover, image: AssetImage('assent/images/bg2.jpg'))),
+                fit: BoxFit.cover,
+                image: AssetImage(settingprovider.isDarkMode()
+                    ? "assent/images/bg.jpg"
+                    : 'assent/images/bg2.jpg'))),
         child: Scaffold(
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset('assent/images/logo2.jpg'),
-              Spacer(),
-              Text(
-                'Programing by Mohamed Rizk',
-                style: TextStyle(color: Colors.black, fontSize: 25),
-              )
-            ],
+          body: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 3,
+                ),
+                Center(
+                    child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: ExactAssetImage("assent/images/logo2.jpg"),
+                )),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Center(
+                    child: Text(
+                      'Programing by Mohamed Rizk',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25,
+                          fontWeight: FontWeight.lerp(
+                              FontWeight.normal,
+                              FontWeight.w400,
+                              ScrollDragController
+                                  .momentumRetainVelocityThresholdFactor)),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
         ));
   }

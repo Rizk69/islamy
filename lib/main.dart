@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islamyverson1/Themes/MyTheme.dart';
 import 'package:islamyverson1/home/MainScreen.dart';
+import 'package:islamyverson1/home/SplashScreen.dart';
 import 'package:islamyverson1/home/hadeth/Hadeth_deteils.dart';
 import 'package:islamyverson1/home/quran/sura_deteils.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       themeMode: settingprovider.currentTheme,
       darkTheme: MyTheme.darktheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: Homescreen.routename,
+      initialRoute: SplashScreen.route,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         Homescreen.routename: (_) => Homescreen(),
         Suradeteils.routename: (_) => Suradeteils(),
         Hadethdeteils.routename: (_) => Hadethdeteils(),
+        SplashScreen.route: (_) => SplashScreen(),
       },
     );
   }
